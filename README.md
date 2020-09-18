@@ -1,5 +1,5 @@
 # weather-app-react
-Simple weather app built using react.js, Open Weather Map Api, React-bootstrap, CSS grid, Google Fonts, add whatever needs to be added!
+Simple weather app built using react.js, Open Weather Map Api, React-bootstrap, CSS grid and Google Fonts.
 
 
 ### Demo
@@ -14,9 +14,9 @@ Monika Brzostek
 ### Installation
 
 ```bash
-!!!rememeber to change it
-git clone https://github.com/MonikaBrzostek/React-calculator.git
-cd React-calculator
+
+git clone https://github.com/MonikaBrzostek/weather-app-react.git
+cd weather-app-react
 npm install
 ```
 
