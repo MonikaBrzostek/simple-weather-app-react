@@ -4,7 +4,7 @@ Simple weather app built using react.js, Open Weather Map Api, React-bootstrap, 
 
 ### Demo
 
-http://simple-weather-app-react.herokuapp.com/
+https://simple-weather-app-react.herokuapp.com/
 
 ### Author
 
