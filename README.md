@@ -1,4 +1,4 @@
-# weather-app-react
+# simple-weather-app-react
 Simple weather app built using react.js, Open Weather Map Api, React-bootstrap, CSS grid and Google Fonts.
 
 
@@ -15,8 +15,8 @@ Monika Brzostek
 
 ```bash
 
-git clone https://github.com/MonikaBrzostek/weather-app-react.git
-cd weather-app-react
+git clone https://github.com/MonikaBrzostek/simple-weather-app-react.git
+cd simple-weather-app-react
 npm install
 ```
 
