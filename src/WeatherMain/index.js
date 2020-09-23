@@ -37,12 +37,7 @@ class WeatherMain extends React.Component {
           })
           return res.json()
         } else {
-          this.setState({
-            error: {
-              isSet: true,
-              message: 'Wrong city name',
-            },
-          })
+          throw new Error('Wrong city name')
         }
       })
       .then((weather) => {
@@ -54,6 +49,16 @@ class WeatherMain extends React.Component {
             loaded: true,
           })
         }
+      })
+      .catch((err) => {
+        console.log(err)
+        this.setState({
+          location: 'Oslo',
+          error: {
+            isSet: true,
+            message: err.message,
+          },
+        })
       })
   }
 
@@ -93,58 +98,61 @@ class WeatherMain extends React.Component {
             <Spinner animation="border" role="status"></Spinner>
           </div>
         ) : (
-            <div className="container">
-              <div className="grid-container-1">
-                <div className="search-bar">
-                  <input
-                    type="search"
-                    placeholder="Search for a place..."
-                    value={this.state.newLocation}
-                    onChange={handleChangeLocation}
-                    onKeyDown={keyDown}
-                  />
-                  <button onClick={handleClickSearch}>🔍</button>
+          <div className="container">
+            <h1 className="date">{formatedDate}</h1>
 
-                  {this.state.error.isSet ? (
-                    <Alert variant={'danger'}>{this.state.error.message}</Alert>
-                  ) : null}
-                </div>
-                <h1 className="date">{formatedDate}</h1>
+            <div className="search-bar">
+              <input
+                type="search"
+                placeholder="Search for a place..."
+                value={this.state.newLocation}
+                onChange={handleChangeLocation}
+                onKeyDown={keyDown}
+              />
+              <button onClick={handleClickSearch}>🔍</button>
+
+              {this.state.error.isSet ? (
+                <Alert variant={'danger'}>{this.state.error.message}</Alert>
+              ) : null}
+            </div>
+
+            <h2 className="location">{this.state.location}</h2>
+
+            <div className="grid-container-1">
+              <div className="soft-box-1">
+                <h3>HUM</h3>
+                <h3>IDI</h3>
+                <h3>TY</h3>
               </div>
-
-              <h2 className="location">{this.state.location}</h2>
-
-              <div className="grid-container-2">
-                <div className="soft-box">
-                  <h3>HUM</h3>
-                  <h3>IDI</h3>
-                  <h3>TY</h3>
-                </div>
-                <div className="soft-box">
-                  <h3 style={{ fontSize: '60px' }}>
-                    {Math.round(this.state.weather.temp)}°C
-                </h3>
-                </div>
-                <div className="soft-box">
-                  <h3>
-                    <p>{this.state.clouds.description}</p>
-                  </h3>
-                </div>
-                <div className="soft-box">
-                  <h3>{this.state.weather.humidity}%</h3>
-                </div>
-                <div className="soft-box">
-                  <img src={require(`./img/thermometer.png`)} alt="thermometer" />
-                </div>
-                <div className="soft-box">
-                  <img
-                    src={`http://openweathermap.org/img/wn/${this.state.clouds.icon}@2x.png`}
-                    alt="clouds"
-                  />
-                </div>
+              <div className="soft-box-2">
+                <h3>{this.state.weather.humidity}%</h3>
               </div>
             </div>
-          )}
+            <div className="grid-container-2">
+              <div className="soft-box-1">
+                <img src={require(`./img/thermometer.png`)} alt="thermometer" />
+              </div>
+              <div className="soft-box-2">
+                <h3 style={{ fontSize: '60px' }}>
+                  {Math.round(this.state.weather.temp)}°C
+                </h3>
+              </div>
+            </div>
+            <div className="grid-container-3">
+              <div className="soft-box-1">
+                <h3>
+                  <p>{this.state.clouds.description}</p>
+                </h3>
+              </div>
+              <div className="soft-box-2">
+                <img
+                  src={`http://openweathermap.org/img/wn/${this.state.clouds.icon}@2x.png`}
+                  alt="clouds"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </>
     )
   }

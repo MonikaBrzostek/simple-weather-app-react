@@ -15,23 +15,31 @@ button {
   padding: 10px;
 }
 
+.container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .date {
   margin: 30px;
   font-size: 20px;
-  justify-self: end;
-  align-self: center;
 }
 
 .grid-container-1 {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
 }
 
 .grid-container-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 img {
@@ -52,28 +60,46 @@ input {
 
 .location {
   margin-bottom: 30px;
+  margin-top: 30px;
   font-size: 60px;
 }
 
-.search-bar {
-  justify-self: end;
-  align-self: center;
-}
-
-.soft-box {
+.soft-box-1 {
   display: grid;
   font-size: 40px;
   background-color: white;
   width: 150px;
   height: 150px;
   color: #4f5859;
-  margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px 10px 10px 10px;
+
   border-radius: 15px 15px 15px 15px;
   opacity: 0.8;
+  justify-self: end;
 }
 
-.soft-box > h3,
+.soft-box-2 {
+  display: grid;
+  font-size: 40px;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  color: #4f5859;
+  margin: 10px 10px 10px 10px;
+
+  border-radius: 15px 15px 15px 15px;
+  opacity: 0.8;
+  justify-self: start;
+}
+
+.soft-box-1 > h3,
+img {
+  font-size: 32px;
+  justify-self: center;
+  align-self: center;
+}
+
+.soft-box-2 > h3,
 img {
   font-size: 32px;
   justify-self: center;
@@ -91,4 +117,48 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 350px) {
+  .soft-box-1 {
+    display: grid;
+    font-size: 30px;
+    background-color: white;
+    width: 130px;
+    height: 130px;
+    color: #4f5859;
+    margin: 10px 10px 10px 10px;
+
+    border-radius: 15px 15px 15px 15px;
+    opacity: 0.8;
+    justify-self: end;
+  }
+
+  .soft-box-2 {
+    display: grid;
+    font-size: 30px;
+    background-color: white;
+    width: 130px;
+    height: 130px;
+    color: #4f5859;
+    margin: 10px 10px 10px 10px;
+
+    border-radius: 15px 15px 15px 15px;
+    opacity: 0.8;
+    justify-self: start;
+  }
+
+  .soft-box-1 > h3,
+  img {
+    font-size: 28px;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .soft-box-2 > h3,
+  img {
+    font-size: 28px;
+    justify-self: center;
+    align-self: center;
+  }
 }
